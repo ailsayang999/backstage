@@ -1,6 +1,6 @@
 import React from "react";
 
-const Table = () => {
+const Table = ({ InvoiceSubCategoryObject }) => {
   return (
     <div>
       <section class="container px-4 mx-auto">

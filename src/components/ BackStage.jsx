@@ -1,9 +1,71 @@
-import React from "react";
+import React, { useState } from "react";
 import Bar from "components/Bar";
 import Table from "components/Table";
 import { IoIosArrowDown } from "react-icons/io";
+import { RevenueArray } from "data/content";
+import { InvoiceArray } from "data/content";
+
+const NavFilterList = ({
+  CategoryFilterArray,
+  handleChangeCategoryContent,
+}) => {
+  return (
+    <>
+      {CategoryFilterArray.map(({ mainCategory, subCategory }, index) => {
+        return (
+          <div className="mt-8" key={index}>
+            <h2 className="font-semibold text-gray-600 uppercase tracking-wide">
+              {mainCategory}
+            </h2>
+            {subCategory.map((item, index) => {
+              return (
+                <div className="mt-3" key={index}>
+                  <button
+                    value={item}
+                    className="-mx-3  py-1 px-3 text-sm font-medium flex items-center justify-between hover:bg-gray-200 rounded-lg"
+                    onClick={(e) => {
+                      handleChangeCategoryContent(e);
+                    }}
+                  >
+                    <span className="text-gray-900">{item}</span>
+                  </button>
+                </div>
+              );
+            })}
+          </div>
+        );
+      })}
+    </>
+  );
+};
 
 function BackStage() {
+  const [showSubCategory, setShowSubCategory] = useState(
+    "2021 Monthly Revenue"
+  );
+
+  // 左側刪選器元件 商品種類分類
+  const CategoryFilterArray = [
+    {
+      id: 1,
+      mainCategory: "customers",
+      subCategory: ["Invoices"],
+    },
+    {
+      id: 2,
+      mainCategory: "revenue",
+      subCategory: ["2021 Monthly Revenue"],
+    },
+  ];
+
+  console.log("showSubCategory", showSubCategory);
+
+  //左側點擊事件
+  const handleChangeCategoryContent = (event) => {
+    const value = event.currentTarget.value; //要把event.target.value變成event.currentTarget.value
+    setShowSubCategory(value);
+  };
+
   return (
     <>
       <div className="h-screen flex flex-col">
@@ -76,48 +138,10 @@ function BackStage() {
           {/* left nav bar */}
           <div className="w-64 p-6 bg-gray-100 overflow-y-auto">
             <nav>
-              <div className="mt-8">
-                <h2 className="font-semibold text-gray-600 uppercase tracking-wide">
-                  Customers
-                </h2>
-                <div className="mt-3">
-                  <a
-                    href=""
-                    className="-mx-3  py-1 px-3 text-sm font-medium flex items-center justify-between hover:bg-gray-200 rounded-lg"
-                  >
-                    <span className=" text-gray-900">Invoices</span>
-                  </a>
-                </div>
-              </div>
-              <div className="mt-8">
-                <h2 className="font-semibold text-gray-600 uppercase tracking-wide">
-                  Revenue
-                </h2>
-                <div className="mt-3">
-                  <a
-                    href=""
-                    className="-mx-3  py-1 px-3 text-sm font-medium flex items-center justify-between hover:bg-gray-200 rounded-lg"
-                  >
-                    <span className=" text-gray-900">2021 Monthly Revenue</span>
-                  </a>
-                </div>
-                <div className="mt-3">
-                  <a
-                    href=""
-                    className="-mx-3  py-1 px-3 text-sm font-medium flex items-center justify-between hover:bg-gray-200 rounded-lg"
-                  >
-                    <span className=" text-gray-900">2022 Monthly Revenue</span>
-                  </a>
-                </div>
-                <div className="mt-3">
-                  <a
-                    href=""
-                    className="-mx-3  py-1 px-3 text-sm font-medium flex items-center justify-between hover:bg-gray-200 rounded-lg"
-                  >
-                    <span className=" text-gray-900">2023 Monthly Revenue</span>
-                  </a>
-                </div>
-              </div>
+              <NavFilterList
+                CategoryFilterArray={CategoryFilterArray}
+                handleChangeCategoryContent={handleChangeCategoryContent}
+              />
             </nav>
           </div>
 
@@ -129,18 +153,42 @@ function BackStage() {
                   <Bar/>
                 </div>
               </div> */}
-
-              <div className="pt-4 ml-2 mr-2 rounded-lg">
-                <div className="px-4 py-2">
-                  <Bar />
+              {RevenueArray?.filter((i) => i.subCategory === showSubCategory)
+                .length > 0 && (
+                <div className="pt-4 ml-2 mr-2 rounded-lg">
+                  <div className="px-4 py-2">
+                    <Bar
+                      RevenueSubCategoryObject={
+                        RevenueArray?.filter(
+                          (i) => i.subCategory === showSubCategory
+                        )[0]
+                      }
+                    />
+                  </div>
                 </div>
-              </div>
+              )}
 
-              <div className="pt-4 ml-2 mr-2 rounded-lg">
+              {InvoiceArray?.filter((i) => i.subCategory === showSubCategory)
+                .length > 0 && (
+                <div className="pt-4 ml-2 mr-2 rounded-lg">
+                  <div className="px-4 py-2">
+                    <Table
+                      InvoiceSubCategoryObject={
+                        InvoiceArray?.filter(
+                          (i) => i.subCategory === showSubCategory
+                        )[0]
+                      }
+                    />
+                  </div>
+                </div>
+              )}
+
+              {/* <div className="pt-4 ml-2 mr-2 rounded-lg">
                 <div className="px-4 py-2">
                   <Table />
                 </div>
-              </div>
+              </div> */}
+
             </div>
           </main>
         </div>

@@ -1,13 +1,22 @@
 import React from "react";
 
-function Bar() {
+function Bar({ RevenueSubCategoryObject }) {
   return (
     <>
       <div className="flex flex-col items-center w-full max-w-screen-md p-6 pb-6 bg-white rounded-lg shadow-xl sm:p-8">
         <h2 className="text-xl font-bold">Monthly Revenue</h2>
-        <span className="text-sm font-semibold text-gray-500">2021</span>
+        <span className="text-sm font-semibold text-gray-500">
+          {RevenueSubCategoryObject.year}
+        </span>
         <div className="flex items-end flex-grow w-full mt-2 space-x-2 sm:space-x-3">
-          <div className="relative flex flex-col items-center flex-grow pb-5 group">
+          {/* {RevenueSubCategoryObject.month.map(({ month, money }, index) => {
+            return (<div key={index}>
+
+
+            </div>);
+          })} */}
+
+          <div className="relative flex flex-col items-center flex-grow pb-5 group cursor-pointer">
             <span className="absolute top-0 hidden -mt-6 text-xs font-bold group-hover:block">
               $37,500
             </span>
@@ -16,6 +25,7 @@ function Bar() {
             <div className="relative flex justify-center w-full h-16 bg-sky-400"></div>
             <span className="absolute bottom-0 text-xs font-bold">Jan</span>
           </div>
+
           <div className="relative flex flex-col items-center flex-grow pb-5 group">
             <span className="absolute top-0 hidden -mt-6 text-xs font-bold group-hover:block">
               $45,000
@@ -25,7 +35,7 @@ function Bar() {
             <div className="relative flex justify-center w-full h-20 bg-sky-400"></div>
             <span className="absolute bottom-0 text-xs font-bold">Feb</span>
           </div>
-          <div className="relative flex flex-col items-center flex-grow pb-5 group">
+          <div className="relative flex flex-col items-center flex-grow pb-5 group cursor-pointer">
             <span className="absolute top-0 hidden -mt-6 text-xs font-bold group-hover:block">
               $47,500
             </span>
@@ -34,7 +44,7 @@ function Bar() {
             <div className="relative flex justify-center w-full h-20 bg-sky-400"></div>
             <span className="absolute bottom-0 text-xs font-bold">Mar</span>
           </div>
-          <div className="relative flex flex-col items-center flex-grow pb-5 group">
+          <div className="relative flex flex-col items-center flex-grow pb-5 group cursor-pointer">
             <span className="absolute top-0 hidden -mt-6 text-xs font-bold group-hover:block">
               $50,000
             </span>
