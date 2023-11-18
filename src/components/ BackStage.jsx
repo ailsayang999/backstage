@@ -14,7 +14,7 @@ const NavFilterList = ({
       {CategoryFilterArray.map(({ mainCategory, subCategory }, index) => {
         return (
           <div className="mt-8" key={index}>
-            <h2 className="font-semibold text-gray-600 uppercase tracking-wide">
+            <h2 className="font-semibold text-sky-400 uppercase tracking-wide">
               {mainCategory}
             </h2>
             {subCategory.map((item, index) => {
@@ -22,12 +22,14 @@ const NavFilterList = ({
                 <div className="mt-3" key={index}>
                   <button
                     value={item}
-                    className="-mx-3  py-1 px-3 text-sm font-medium flex items-center justify-between hover:bg-gray-200 rounded-lg"
+                    className="-mx-3  py-1 px-3 text-sm font-medium flex items-center justify-between hover:bg-sky-50 rounded-lg"
                     onClick={(e) => {
                       handleChangeCategoryContent(e);
                     }}
                   >
-                    <span className="text-gray-900">{item}</span>
+                    <span className="text-sky-100 hover:text-cyan-950">
+                      {item}
+                    </span>
                   </button>
                 </div>
               );
@@ -134,7 +136,7 @@ function BackStage() {
 
         <div className="flex-1 flex overflow-x-hidden">
           {/* left nav bar */}
-          <div className="w-64 p-6 bg-gray-100 overflow-y-auto">
+          <div className="w-64 p-6 bg-sky-950 overflow-y-auto">
             <nav>
               <NavFilterList
                 CategoryFilterArray={CategoryFilterArray}
@@ -186,7 +188,6 @@ function BackStage() {
                   <Table />
                 </div>
               </div> */}
-
             </div>
           </main>
         </div>
