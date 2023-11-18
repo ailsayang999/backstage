@@ -3,11 +3,12 @@ import React from "react";
 function Bar({ RevenueSubCategoryObject }) {
   return (
     <>
-      <div className="flex flex-col items-center w-full max-w-screen-md p-6 pb-6 bg-white rounded-lg shadow-xl sm:p-8">
+      <div className="flex flex-col items-center w-full p-6 pb-6 bg-white rounded-lg shadow-xl sm:p-8">
         <h2 className="text-xl font-bold">Monthly Revenue</h2>
         <span className="text-sm font-semibold text-gray-500">
           {RevenueSubCategoryObject.year}
         </span>
+
         <div className="flex items-end flex-grow w-full mt-2 space-x-2 sm:space-x-3">
           {/* {RevenueSubCategoryObject.month.map(({ month, money }, index) => {
             return (<div key={index}>
@@ -26,7 +27,7 @@ function Bar({ RevenueSubCategoryObject }) {
             <span className="absolute bottom-0 text-xs font-bold">Jan</span>
           </div>
 
-          <div className="relative flex flex-col items-center flex-grow pb-5 group">
+          <div className="relative flex flex-col items-center flex-grow pb-5 group cursor-pointer">
             <span className="absolute top-0 hidden -mt-6 text-xs font-bold group-hover:block">
               $45,000
             </span>
@@ -53,7 +54,7 @@ function Bar({ RevenueSubCategoryObject }) {
             <div className="relative flex justify-center w-full h-24 bg-sky-400"></div>
             <span className="absolute bottom-0 text-xs font-bold">Apr</span>
           </div>
-          <div className="relative flex flex-col items-center flex-grow pb-5 group">
+          <div className="relative flex flex-col items-center flex-grow pb-5 group cursor-pointer">
             <span className="absolute top-0 hidden -mt-6 text-xs font-bold group-hover:block">
               $47,500
             </span>
@@ -62,7 +63,7 @@ function Bar({ RevenueSubCategoryObject }) {
             <div className="relative flex justify-center w-full h-20 bg-sky-400"></div>
             <span className="absolute bottom-0 text-xs font-bold">May</span>
           </div>
-          <div className="relative flex flex-col items-center flex-grow pb-5 group">
+          <div className="relative flex flex-col items-center flex-grow pb-5 group cursor-pointer">
             <span className="absolute top-0 hidden -mt-6 text-xs font-bold group-hover:block">
               $55,000
             </span>
@@ -71,7 +72,7 @@ function Bar({ RevenueSubCategoryObject }) {
             <div className="relative flex justify-center w-full h-24 bg-sky-400"></div>
             <span className="absolute bottom-0 text-xs font-bold">Jun</span>
           </div>
-          <div className="relative flex flex-col items-center flex-grow pb-5 group">
+          <div className="relative flex flex-col items-center flex-grow pb-5 group cursor-pointer">
             <span className="absolute top-0 hidden -mt-6 text-xs font-bold group-hover:block">
               $60,000
             </span>
@@ -80,7 +81,7 @@ function Bar({ RevenueSubCategoryObject }) {
             <div className="relative flex justify-center w-full h-20 bg-sky-400"></div>
             <span className="absolute bottom-0 text-xs font-bold">Jul</span>
           </div>
-          <div className="relative flex flex-col items-center flex-grow pb-5 group">
+          <div className="relative flex flex-col items-center flex-grow pb-5 group cursor-pointer">
             <span className="absolute top-0 hidden -mt-6 text-xs font-bold group-hover:block">
               $57,500
             </span>
@@ -89,7 +90,7 @@ function Bar({ RevenueSubCategoryObject }) {
             <div className="relative flex justify-center w-full h-24 bg-sky-400"></div>
             <span className="absolute bottom-0 text-xs font-bold">Aug</span>
           </div>
-          <div className="relative flex flex-col items-center flex-grow pb-5 group">
+          <div className="relative flex flex-col items-center flex-grow pb-5 group cursor-pointer">
             <span className="absolute top-0 hidden -mt-6 text-xs font-bold group-hover:block">
               $67,500
             </span>
@@ -98,7 +99,7 @@ function Bar({ RevenueSubCategoryObject }) {
             <div className="relative flex justify-center w-full h-32 bg-sky-400"></div>
             <span className="absolute bottom-0 text-xs font-bold">Sep</span>
           </div>
-          <div className="relative flex flex-col items-center flex-grow pb-5 group">
+          <div className="relative flex flex-col items-center flex-grow pb-5 group cursor-pointer">
             <span className="absolute top-0 hidden -mt-6 text-xs font-bold group-hover:block">
               $65,000
             </span>
@@ -107,7 +108,7 @@ function Bar({ RevenueSubCategoryObject }) {
             <div className="relative flex justify-center w-full bg-sky-400 h-28"></div>
             <span className="absolute bottom-0 text-xs font-bold">Oct</span>
           </div>
-          <div className="relative flex flex-col items-center flex-grow pb-5 group">
+          <div className="relative flex flex-col items-center flex-grow pb-5 group cursor-pointer">
             <span className="absolute top-0 hidden -mt-6 text-xs font-bold group-hover:block">
               $70,000
             </span>
@@ -116,7 +117,7 @@ function Bar({ RevenueSubCategoryObject }) {
             <div className="relative flex justify-center w-full h-40 bg-sky-400"></div>
             <span className="absolute bottom-0 text-xs font-bold">Nov</span>
           </div>
-          <div className="relative flex flex-col items-center flex-grow pb-5 group">
+          <div className="relative flex flex-col items-center flex-grow pb-5 group cursor-pointer">
             <span className="absolute top-0 hidden -mt-6 text-xs font-bold group-hover:block">
               $75,000
             </span>
@@ -126,6 +127,7 @@ function Bar({ RevenueSubCategoryObject }) {
             <span className="absolute bottom-0 text-xs font-bold">Dec</span>
           </div>
         </div>
+        
         <div className="flex w-full mt-3">
           <div className="flex items-center ml-auto">
             <span className="block w-4 h-4 bg-sky-400"></span>
