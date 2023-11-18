@@ -60,8 +60,6 @@ function BackStage() {
     },
   ];
 
-  console.log("showSubCategory", showSubCategory);
-
   //左側點擊事件
   const handleChangeCategoryContent = (event) => {
     const value = event.currentTarget.value; //要把event.target.value變成event.currentTarget.value

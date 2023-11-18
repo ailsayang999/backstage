@@ -12,7 +12,7 @@ export const login = async ({ username, password }) => {
     });
 
     //我們可以在這裡console.log一下看後端傳來的data有什麼
-    console.log(data);
+    //console.log(data);
 
     //我們用解構的方式取到data裡面authToken的值
     const { authToken } = data;
