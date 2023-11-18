@@ -23,7 +23,7 @@ const AdminPage = () => {
       <Button primary>Primary</Button>
       <Button warning>Warning</Button>
       <Bar /> */}
-      <BackStage userName={currentMember.name} />
+      <BackStage userName={currentMember} />
     </>
   );
 };

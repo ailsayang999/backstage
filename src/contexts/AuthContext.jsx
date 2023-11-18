@@ -1,12 +1,11 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import { login, checkPermission } from "api/auth";
-import * as jwt from "jsonwebtoken";
+import { login } from "api/auth";
+import jwt_decode from "jwt-decode";
 import { useLocation } from "react-router-dom";
 
 const defaultAuthContext = {
   isAuthenticated: false, // 使用者是否登入的判斷依據，預設為 false，若取得後端的有效憑證，則切換為 true
   currentMember: null, // 當前使用者相關資料，預設為 null，成功登入後就會有使用者資料
-  register: null, // 註冊方法
   login: null, // 登入方法
   logout: null, // 登入方法
 };
@@ -27,38 +26,38 @@ export const AuthProvider = ({ children }) => {
   // 用react-router-dom裡面useLocation的Hook取得當前頁面是否有切換的資訊，用useLocation去取得pathname的props，我們可以透過pathname的值來去了解當前頁面的變化
   const { pathname } = useLocation();
 
-  // 要把驗證每一頁的token是否為有效的function，放進AuthContext
-  useEffect(() => {
-    const checkTokenIsValid = async () => {
-      // 去localStorage取 authToken
-      const authToken = localStorage.getItem("authToken");
-      // 如果authToken不存在的話（比如說登出的時後）代表它就是一個為驗證未登入的狀態
-      if (!authToken) {
-        // 如果authToken不存在，要把isAuthenticated改成false
-        setIsAuthenticated(false);
-        //同時也不會有payload
-        setPayload(null);
-        return; //如果authToken不存在，我有不用再去做checkPermission的動作了
-      }
-      // 當我們的authToken是存在的話(使用者有登入或是註冊的時候)，就把authToken給checkPermission檢查，他會回傳是否是有效的登入或註冊(會回傳response.data.success，那這邊success裡面可能是true或false，這個boolean會被放到result裡面)
-      const result = await checkPermission(authToken);
+  // // 要把驗證每一頁的token是否為有效的function，放進AuthContext
+  // useEffect(() => {
+  //   const checkTokenIsValid = async () => {
+  //     // 去localStorage取 authToken
+  //     const authToken = localStorage.getItem("authToken");
+  //     // 如果authToken不存在的話（比如說登出的時後）代表它就是一個為驗證未登入的狀態
+  //     if (!authToken) {
+  //       // 如果authToken不存在，要把isAuthenticated改成false
+  //       setIsAuthenticated(false);
+  //       //同時也不會有payload
+  //       setPayload(null);
+  //       return; //如果authToken不存在，我有不用再去做checkPermission的動作了
+  //     }
+  //     // 當我們的authToken是存在的話(使用者有登入或是註冊的時候)，就把authToken給checkPermission檢查，他會回傳是否是有效的登入或註冊(會回傳response.data.success，那這邊success裡面可能是true或false，這個boolean會被放到result裡面)
+  //     const result = await checkPermission(authToken);
 
-      if (result) {
-        //如果這個authToken是有效的話(result為true)，代表我們的身份是有經過驗證的
-        setIsAuthenticated(true);
-        // 那我們也把這個有效的authToken去做解析拿出payload存到tempPayload變數裡
-        const tempPayload = jwt.decode(authToken);
-        //把現在的payload內容更新為tempPayload
-        setPayload(tempPayload);
-      } else {
-        //如果驗證出來的結果為無效
-        setIsAuthenticated(false);
-        setPayload(null);
-      }
-    };
-    //當就執行checkTokenIsValid
-    checkTokenIsValid();
-  }, [pathname]); //當pathname有改變的話，我就去執行useEffect，去checkPermission
+  //     if (result) {
+  //       //如果這個authToken是有效的話(result為true)，代表我們的身份是有經過驗證的
+  //       setIsAuthenticated(true);
+  //       // 那我們也把這個有效的authToken去做解析拿出payload存到tempPayload變數裡
+  //       const tempPayload = jwt_decode(authToken);
+  //       //把現在的payload內容更新為tempPayload
+  //       setPayload(tempPayload);
+  //     } else {
+  //       //如果驗證出來的結果為無效
+  //       setIsAuthenticated(false);
+  //       setPayload(null);
+  //     }
+  //   };
+  //   //當就執行checkTokenIsValid
+  //   checkTokenIsValid();
+  // }, [pathname]); //當pathname有改變的話，我就去執行useEffect，去checkPermission
 
   return (
     <AuthContext.Provider
@@ -75,7 +74,7 @@ export const AuthProvider = ({ children }) => {
             password: data.password,
           });
           //下面這裡跟register解析payload的方式是一樣的，只有上面呼叫的是login()
-          const tempPayload = jwt.decode(authToken);
+          const tempPayload = jwt_decode(authToken);
           if (tempPayload) {
             setPayload(tempPayload);
             setIsAuthenticated(true);

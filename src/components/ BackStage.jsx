@@ -4,13 +4,14 @@ import Table from "components/Table";
 import { IoIosArrowDown } from "react-icons/io";
 import { RevenueArray } from "data/content";
 import { InvoiceArray } from "data/content";
+import { useAuth } from "contexts/AuthContext";
 
 const NavFilterList = ({
   CategoryFilterArray,
   handleChangeCategoryContent,
 }) => {
   return (
-    <>
+    <div>
       {CategoryFilterArray.map(({ mainCategory, subCategory }, index) => {
         return (
           <div className="mt-8" key={index}>
@@ -37,12 +38,13 @@ const NavFilterList = ({
           </div>
         );
       })}
-    </>
+    </div>
   );
 };
 
 function BackStage() {
   const [showSubCategory, setShowSubCategory] = useState("Invoices");
+  const { logout } = useAuth();
 
   // 左側刪選器元件 商品種類分類
   const CategoryFilterArray = [
@@ -58,12 +60,15 @@ function BackStage() {
     },
   ];
 
-  console.log("showSubCategory", showSubCategory);
-
   //左側點擊事件
   const handleChangeCategoryContent = (event) => {
     const value = event.currentTarget.value; //要把event.target.value變成event.currentTarget.value
     setShowSubCategory(value);
+  };
+
+  //登出
+  const handleLogout = () => {
+    logout();
   };
 
   return (
@@ -136,12 +141,19 @@ function BackStage() {
 
         <div className="flex-1 flex overflow-x-hidden">
           {/* left nav bar */}
-          <div className="w-64 p-6 bg-sky-950 overflow-y-auto">
-            <nav>
+          <div className="w-80 p-6 bg-sky-950 overflow-y-auto">
+            <nav className="flex flex-col h-full justify-between ">
               <NavFilterList
                 CategoryFilterArray={CategoryFilterArray}
                 handleChangeCategoryContent={handleChangeCategoryContent}
               />
+
+              <button
+                className="py-1 px-3 text-sm font-medium flex-col flex items-center justify-between hover:bg-sky-50 rounded-lg"
+                onClick={handleLogout}
+              >
+                <span className="text-sky-400 hover:text-cyan-950">Logout</span>
+              </button>
             </nav>
           </div>
 
