@@ -10,22 +10,23 @@ const AdminLogin = () => {
   const { login, isAuthenticated } = useAuth();
 
   const handleEmailInputChange = (eventValue) => {
-    console.log(eventValue);
     setUserName(eventValue);
   };
 
   const handlePasswordInputChange = (eventValue) => {
-    console.log("password eventValue", eventValue);
     setPassword(eventValue);
   };
 
   //handle點擊登入按鈕時的event，在點擊登入的button時會去呼叫handleClick這個function，handleClick這個function會再去呼叫auth.js裡面的login非同步function
-  const handleClick = async () => {
+  const handleClick = async (event) => {
+    event.preventDefault();
     //防止使用者沒有輸入username和password
     if (username.length === 0) {
+      alert("Please fill in your name and email!!!!");
       return;
     }
     if (password.length === 0) {
+      alert("Please fill in your name and password!!!!");
       return;
     }
     try {
@@ -156,6 +157,7 @@ const AdminLogin = () => {
             <button
               type="submit"
               className="block w-full bg-cyan-500 mt-5 py-2 rounded-2xl hover:bg-sky-400 hover:-translate-y-1 transition-all duration-500 text-white font-semibold mb-2"
+              onClick={(e) => handleClick(e)}
             >
               Login
             </button>
