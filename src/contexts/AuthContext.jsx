@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { login, checkPermission } from "api/auth";
-import * as jwt from "jsonwebtoken";
+import jwt_decode from "jwt-decode";
 import { useLocation } from "react-router-dom";
 
 const defaultAuthContext = {
@@ -47,7 +47,7 @@ export const AuthProvider = ({ children }) => {
         //如果這個authToken是有效的話(result為true)，代表我們的身份是有經過驗證的
         setIsAuthenticated(true);
         // 那我們也把這個有效的authToken去做解析拿出payload存到tempPayload變數裡
-        const tempPayload = jwt.decode(authToken);
+        const tempPayload = jwt_decode(authToken);
         //把現在的payload內容更新為tempPayload
         setPayload(tempPayload);
       } else {
@@ -75,7 +75,7 @@ export const AuthProvider = ({ children }) => {
             password: data.password,
           });
           //下面這裡跟register解析payload的方式是一樣的，只有上面呼叫的是login()
-          const tempPayload = jwt.decode(authToken);
+          const tempPayload = jwt_decode(authToken);
           if (tempPayload) {
             setPayload(tempPayload);
             setIsAuthenticated(true);
