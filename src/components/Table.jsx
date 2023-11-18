@@ -146,11 +146,11 @@ const Table = ({ InvoiceSubCategoryObject }) => {
                       </td>
                       <td className="px-4 py-4 text-sm whitespace-nowrap">
                         <div className="flex items-center gap-x-6">
-                          <button className="text-gray-500 transition-colors duration-200 hover:text-indigo-500 focus:outline-none">
+                          <button className="text-gray-500 transition-colors duration-200 hover:text-sky-400 focus:outline-none">
                             Archive
                           </button>
 
-                          <button className="text-blue-500 transition-colors duration-200 hover:text-indigo-500 focus:outline-none">
+                          <button className="text-blue-500 transition-colors duration-200 hover:text-sky-400 focus:outline-none">
                             Download
                           </button>
                         </div>
@@ -214,11 +214,11 @@ const Table = ({ InvoiceSubCategoryObject }) => {
                       </td>
                       <td className="px-4 py-4 text-sm whitespace-nowrap">
                         <div className="flex items-center gap-x-6">
-                          <button className="text-gray-500 transition-colors duration-200 hover:text-indigo-500 focus:outline-none">
+                          <button className="text-gray-500 transition-colors duration-200 hover:text-sky-400 focus:outline-none">
                             Archive
                           </button>
 
-                          <button className="text-blue-500 transition-colors duration-200 hover:text-indigo-500 focus:outline-none">
+                          <button className="text-blue-500 transition-colors duration-200 hover:text-sky-400 focus:outline-none">
                             Download
                           </button>
                         </div>
@@ -282,11 +282,11 @@ const Table = ({ InvoiceSubCategoryObject }) => {
                       </td>
                       <td className="px-4 py-4 text-sm whitespace-nowrap">
                         <div className="flex items-center gap-x-6">
-                          <button className="text-gray-500 transition-colors duration-200 hover:text-indigo-500 focus:outline-none">
+                          <button className="text-gray-500 transition-colors duration-200 hover:text-sky-400 focus:outline-none">
                             Archive
                           </button>
 
-                          <button className="text-blue-500 transition-colors duration-200 hover:text-indigo-500 focus:outline-none">
+                          <button className="text-blue-500 transition-colors duration-200 hover:text-sky-400 focus:outline-none">
                             Download
                           </button>
                         </div>
@@ -350,11 +350,11 @@ const Table = ({ InvoiceSubCategoryObject }) => {
                       </td>
                       <td className="px-4 py-4 text-sm whitespace-nowrap">
                         <div className="flex items-center gap-x-6">
-                          <button className="text-gray-500 transition-colors duration-200 hover:text-indigo-500 focus:outline-none">
+                          <button className="text-gray-500 transition-colors duration-200 hover:text-sky-400 focus:outline-none">
                             Archive
                           </button>
 
-                          <button className="text-blue-500 transition-colors duration-200 hover:text-indigo-500 focus:outline-none">
+                          <button className="text-blue-500 transition-colors duration-200 hover:text-sky-400 focus:outline-none">
                             Download
                           </button>
                         </div>
@@ -418,11 +418,11 @@ const Table = ({ InvoiceSubCategoryObject }) => {
                       </td>
                       <td className="px-4 py-4 text-sm whitespace-nowrap">
                         <div className="flex items-center gap-x-6">
-                          <button className="text-gray-500 transition-colors duration-200 hover:text-indigo-500 focus:outline-none">
+                          <button className="text-gray-500 transition-colors duration-200 hover:text-sky-400 focus:outline-none">
                             Archive
                           </button>
 
-                          <button className="text-blue-500 transition-colors duration-200 hover:text-indigo-500 focus:outline-none">
+                          <button className="text-blue-500 transition-colors duration-200 hover:text-sky-400 focus:outline-none">
                             Download
                           </button>
                         </div>
@@ -438,7 +438,7 @@ const Table = ({ InvoiceSubCategoryObject }) => {
         <div className="flex items-center justify-between mt-6">
           <a
             href="#"
-            className="flex items-center px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white border rounded-md gap-x-2 hover:bg-gray-100"
+            className="flex items-center px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white border rounded-md gap-x-2 hover:bg-sky-200"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -461,43 +461,43 @@ const Table = ({ InvoiceSubCategoryObject }) => {
           <div className="items-center hidden md:flex gap-x-3">
             <a
               href="#"
-              className="px-2 py-1 text-sm text-blue-500 rounded-md bg-blue-100/60"
+              className="px-2 py-1 text-sm text-blue-500 rounded-md bg-sky-200"
             >
               1
             </a>
             <a
               href="#"
-              className="px-2 py-1 text-sm text-gray-500 rounded-md hover:bg-gray-100"
+              className="px-2 py-1 text-sm text-gray-500 rounded-md hover:bg-sky-200"
             >
               2
             </a>
             <a
               href="#"
-              className="px-2 py-1 text-sm text-gray-500 rounded-md hover:bg-gray-100"
+              className="px-2 py-1 text-sm text-gray-500 rounded-md hover:bg-sky-200"
             >
               3
             </a>
             <a
               href="#"
-              className="px-2 py-1 text-sm text-gray-500 rounded-md hover:bg-gray-100"
+              className="px-2 py-1 text-sm text-gray-500 rounded-md hover:bg-sky-200"
             >
               ...
             </a>
             <a
               href="#"
-              className="px-2 py-1 text-sm text-gray-500 rounded-md hover:bg-gray-100"
+              className="px-2 py-1 text-sm text-gray-500 rounded-md hover:bg-sky-200"
             >
               12
             </a>
             <a
               href="#"
-              className="px-2 py-1 text-sm text-gray-500 rounded-md hover:bg-gray-100"
+              className="px-2 py-1 text-sm text-gray-500 rounded-md hover:bg-sky-200"
             >
               13
             </a>
             <a
               href="#"
-              className="px-2 py-1 text-sm text-gray-500 rounded-md hover:bg-gray-100"
+              className="px-2 py-1 text-sm text-gray-500 rounded-md hover:bg-sky-200"
             >
               14
             </a>
@@ -505,7 +505,7 @@ const Table = ({ InvoiceSubCategoryObject }) => {
 
           <a
             href="#"
-            className="flex items-center px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white border rounded-md gap-x-2 hover:bg-gray-100"
+            className="flex items-center px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white border rounded-md gap-x-2 hover:bg-sky-200"
           >
             <span>Next</span>
 
