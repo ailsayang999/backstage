@@ -40,9 +40,7 @@ const NavFilterList = ({
 };
 
 function BackStage() {
-  const [showSubCategory, setShowSubCategory] = useState(
-    "2021 Monthly Revenue"
-  );
+  const [showSubCategory, setShowSubCategory] = useState("Invoices");
 
   // 左側刪選器元件 商品種類分類
   const CategoryFilterArray = [
