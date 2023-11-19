@@ -14,6 +14,10 @@ const defaultAuthContext = {
 // email:admin2@gmail.com
 // password:admin2
 
+// 帳號：admin123@gmail.com
+// email:admin2@gmail.com
+// password:admin123
+
 // 就不用每一頁都寫useContext
 export const useAuth = () => useContext(AuthContext);
 
@@ -70,7 +74,7 @@ export const AuthProvider = ({ children }) => {
         login: async (data) => {
           //用解構去把success和authToken的值從return回來的data中取出來
           const { success, authToken } = await login({
-            username: data.username,
+            username: data.email,
             password: data.password,
           });
           //下面這裡跟register解析payload的方式是一樣的，只有上面呼叫的是login()
