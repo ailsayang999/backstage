@@ -45,8 +45,28 @@ const AdminLogin = () => {
       return;
     }
 
-    // 1-1.輸入檢查: 包括前端需要進行字串檢查，確保只包含 0-9、A-Z 及 a-z 的合法字元。
+    // 1-1.輸入檢查: 包括前端需要進行字串檢查，確保只包含 0-9、A-Z 及 a-z 的合法字元。(使用正規表示法)
+    const isValidPassword = /^[0-9a-zA-Z]+$/.test(password);
+    //  ^ 表示符合字串的開頭。
+    // [0-9a-zA-Z] 代表符合任何數字（0-9）、小寫字母（a-z）或大寫字母（A-Z）的字元。這個表示式是一個字元集合，可以符合這個集合中的任何字元。
+    // + 表示前面的字元集合至少出現一次，可以符合多個字元。
+    // $ 表示符合字串的結尾。
+
+    if (!isValidPassword) {
+      //登入失敗
+      Swal.fire({
+        position: "top",
+        title: "確保password只包含 0-9、A-Z 及 a-z 的合法字元",
+        timer: 1000,
+        icon: "error",
+        showConfirmButton: false,
+      });
+      return;
+    }
+
     // 1-2.電子郵件格式檢查: 需要進行對 "XXXX@XXXX" 格式的驗證。
+
+    //email驗證第一階段：是否有@和.
     if (email.indexOf("@") === -1 || email.indexOf(".") === -1) {
       //登入失敗
       Swal.fire({
@@ -55,7 +75,7 @@ const AdminLogin = () => {
         timer: 1000,
         icon: "error",
         showConfirmButton: false,
-      });//要包含@和.
+      }); //要包含@和.
     } else if (
       email.split("@")[0].length === 0 ||
       email.split("@")[1].split(".")[0].length === 0 ||
@@ -70,6 +90,42 @@ const AdminLogin = () => {
         showConfirmButton: false,
       });
       //要包含email username, top level domain, second level domain
+      return;
+    } else if (!/^[0-9a-zA-Z]+$/.test(email.split("@")[0])) {
+      //第三階段
+      //驗證email username:確保只包含 0-9、A-Z 及 a-z 的合法字元。
+      //登入失敗
+      Swal.fire({
+        position: "top",
+        title: "確保email username只包含 0-9、A-Z 及 a-z 的合法字元",
+        timer: 1000,
+        icon: "error",
+        showConfirmButton: false,
+      });
+      return;
+    } else if (!/^[0-9a-zA-Z]+$/.test(email.split("@")[1].split(".")[0])) {
+      //第三階段
+      //驗證email top level domain:確保只包含 0-9、A-Z 及 a-z 的合法字元。
+      //登入失敗
+      Swal.fire({
+        position: "top",
+        title: "確保email top level domain只包含 0-9、A-Z 及 a-z 的合法字元",
+        timer: 1000,
+        icon: "error",
+        showConfirmButton: false,
+      });
+      return;
+    } else if (!/^[0-9a-zA-Z]+$/.test(email.split("@")[1].split(".")[1])) {
+      //第三階段
+      //驗證email second level domain:確保只包含 0-9、A-Z 及 a-z 的合法字元。
+      //登入失敗
+      Swal.fire({
+        position: "top",
+        title: "確保email second level domain只包含 0-9、A-Z 及 a-z 的合法字元",
+        timer: 1000,
+        icon: "error",
+        showConfirmButton: false,
+      });
       return;
     }
 
