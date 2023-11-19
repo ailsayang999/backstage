@@ -194,12 +194,6 @@ function BackStage() {
                   </div>
                 </div>
               )}
-
-              {/* <div className="pt-4 ml-2 mr-2 rounded-lg">
-                <div className="px-4 py-2">
-                  <Table />
-                </div>
-              </div> */}
             </div>
           </main>
         </div>
