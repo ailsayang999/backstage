@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useNavigate, useEffect } from "react";
 import Bar from "components/Bar";
 import Table from "components/Table";
 import { IoIosArrowDown } from "react-icons/io";
@@ -44,7 +44,18 @@ const NavFilterList = ({
 
 function BackStage() {
   const [showSubCategory, setShowSubCategory] = useState("Invoices");
-  const { logout } = useAuth();
+  const { logout, isAuthenticated } = useAuth();
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    //如果有驗證成功，直接到todo頁面
+    if (isAuthenticated) {
+      navigate("/admin");
+    } else {
+      //如果還沒驗證成功，直接到login頁面
+      navigate("/admin_login");
+    }
+  }, [navigate, isAuthenticated]);
 
   // 左側刪選器元件 商品種類分類
   const CategoryFilterArray = [
