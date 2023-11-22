@@ -1,4 +1,5 @@
-import React, { useState, useNavigate, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Bar from "components/Bar";
 import Table from "components/Table";
 import { IoIosArrowDown } from "react-icons/io";
